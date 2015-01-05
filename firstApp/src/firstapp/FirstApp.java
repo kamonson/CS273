@@ -15,7 +15,7 @@ public class FirstApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.printf("HelloWorld");
+        System.out.printf("HelloWorld\n");
     }
     
 }
