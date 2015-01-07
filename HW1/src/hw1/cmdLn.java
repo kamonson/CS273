@@ -10,7 +10,7 @@ package hw1;
  *
  * @author kamonson17
  */
-//PR_1.2 ex 2.7 class for holding greeting
+/**PR_1.2 ex 2.7 class for holding greeting*/
 public class cmdLn {
     String greeting = "Hello World!\n";
 }
