@@ -10,6 +10,7 @@ import java.util.Random;
 import java.util.ArrayList;
 
 /**
+ * Main Class for HW1, methods used for answers
  *
  * @author kyleb_000
  */
@@ -19,20 +20,8 @@ public class HW1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //PR1_1 EX 2.2 creates New ATypeName Object N and output the date retrieved from the ATypeName class
-        ATypeName N = new ATypeName();
-        System.out.println(N.date);
+        pr1_1();
 
-        //PR1_1 EX 2.4 (containing elements of 2.3) Class Data only contains Int I, Float F, Boolen B, create
-        //new object d of DataOnly and assign values to i, f and b then print out
-        DataOnly d = new DataOnly();
-        d.i = 42;
-        d.f = 424242424;//hex display
-        d.b = true;
-
-        System.out.println(d.i);
-        System.out.println(d.f);//hex display
-        System.out.println(d.b);
         pr1_2(args);//PR 1.2 this calls a function
 
         pr1_4();
@@ -43,8 +32,30 @@ public class HW1 {
     }
 
     /**
-     * PR 1.3 Allow a user to select language for hello world, choose between
-     * spanish, german, italian
+     * PR1_1 EX 2.2 creates New ATypeName Object N and output the date retrieved
+     * from the ATypeName class
+     */
+    public static void pr1_1() {
+        ATypeName N = new ATypeName();
+        System.out.println(N.date);
+
+        //PR1_1 EX 2.4 (containing elements of 2.3) Class Data only contains Int I, Float F, Boolen B, create
+        //new object d of DataOnly and assign values to i, f and b then print out
+        DataOnly d = new DataOnly();
+        d.i = 42;
+        d.f = 424242424;
+        d.b = true;
+
+        System.out.println(d.i);
+        System.out.println(d.f);
+        System.out.println(d.b);
+    }
+
+    /**
+     * PR 1.2 Allow a user to select language for hello world, choose between
+     * spanish, german, italian PR 1.3 throughout, use javadoc documentation for
+     * comments
+     * @param args cmd line arguments: spanish, german or italian
      */
     public static void pr1_2(String[] args) {
 
@@ -78,7 +89,8 @@ public class HW1 {
     /**
      * PR1_5 generates 25 random int values. For each value, use an if-else
      * statement to classify it as greater than, less than, or equal to a second
-     * randomly-generated value
+     * randomly-generated value and compares them to the previous and outputs if
+     * it is less the or greater then
      */
     public static void pr1_5() {
         ArrayList<Integer> arrayRanNum = new ArrayList<>();
@@ -98,26 +110,28 @@ public class HW1 {
 
     /**
      * uses two nested for loops and the modulus operator (%) to detect and
-     * print prime numbers
+     * print prime numbers. Uses checks first loop of numbers by second if no
+     * remainder occurs prime is set to false if prime == true then number is
+     * prime is output
      */
     public static void pr1_6() {
         System.out.println("I will list the prime numbers up to the number you choose, please enter a number: \n");
         Scanner input = new Scanner(System.in);
         int x = input.nextInt();
+        boolean prime = true;
         for (int i = 0; i <= x; i++) {
             if (i > 3) {
-                for (int k = 2; k < 4; k++) {
-                    int z = (i % k);
-                    if (z == 0) {
-                        break;
-                    } 
-                    else if (k !=3) {
-                        continue;
+                for (int k = 2; k < i; k++) {
+                    if (k > 3) {
+                        prime = true;
                     }
-                    else  System.out.printf("%d is prime\n", i);
-                   
+                    if ((i % k) == 0) {
+                        prime = false;
+                        break;
+                    }
                 }
-            } else {
+            }
+            if (prime == true) {
                 System.out.printf("%d is prime\n", i);
             }
         }
