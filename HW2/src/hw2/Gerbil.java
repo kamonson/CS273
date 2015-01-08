@@ -5,60 +5,35 @@
  */
 package hw2;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 /**
- * Gerbil Class for HW2.1 from P2 11.2 constructor requires a user input for
- * number of gerbils to be stored in the arrayList gerbilList, if no argument is
- * given then create a random number between 25-100. The Hop function if an
- * argument is passed to hop that gerbil number will hop, if not then all
- * gerbils will hop
+ * Gerbil Class for HW2.1 and HW2.2 from P2 11.2 and 11.3 no arg constructor creates a gerbil and
+ * gives it the number of one
  *
  * @author Zeus
  */
 public class Gerbil {
 
     private int gerbilNumber;
-    ArrayList<Integer> gerbilList = new ArrayList<Integer>();
 
     /**
-     * Create a random amount of gerbils for the arrayList between 25-100
+     * Create a gerbil and assign it the value of 1
      */
     public Gerbil() {
-        Random rand = new Random();
-        int gerbRand = (rand.nextInt((100 - 25) + 1) + 25); //provide between 25 and 100 gerbils
-        for (int k = 0; k < gerbRand; k++) {
-            gerbilList.add(k + 1);
-            gerbilNumber = k;
-        }
+        gerbilNumber = 1;
     }
 
     /**
      *
-     * @param i number of gerbils in arrayList
+     * @param i assigns i to gerbil number
      */
     public Gerbil(int i) {
-        for (int k = 0; k < i; k++) {
-            gerbilList.add(k);
-        }
+        gerbilNumber = i;
     }
 
     /**
      * Make all gerbils in the arrayList hop
      */
     public void hop() {
-        for (int i = 0; i < gerbilList.size(); i++) {
-            System.out.printf("Gerbil number %d is hopping\n", gerbilList.get(i));
-        }
-    }
-
-    /**
-     * make the selected gerbil hop
-     *
-     * @param i gerbil number to hop
-     */
-    public void hop(int i) {
-        System.out.printf("Gerbil number %d is hopping\n", gerbilList.get(i));
+        System.out.printf("Gerbil number %d is hopping\n", gerbilNumber);
     }
 }
