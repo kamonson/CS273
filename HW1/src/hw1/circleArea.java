@@ -12,8 +12,8 @@ package hw1;
  */
 /**PR 1_4 created a class that holds a radious, a final double for PI and has a function to get the area of a circle*/
 public class circleArea {
-    double r;
-    final double PI = 3.14;
+    double r; //PT: better to make r private, and use getR and setR methods
+    final double PI = 3.14; //PT: use java.lang.Math.PI
     double getArea(){
         return (r*r)*PI;
     }
