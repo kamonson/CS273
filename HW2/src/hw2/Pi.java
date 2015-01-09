@@ -18,24 +18,20 @@ public class Pi {
     boolean add = true;
 
     Pi() {
-        for (int i = 0; i < /*Double.MAX_VALUE - 1*/ 2000000000; i++) {
-            if (add == false) {
-                pi -= (4 / denominator);
-                denominator+=2;
-                add = true;
-            } else {
-                pi += (4 / denominator);
-                denominator+=2;
-                add = false;
-            }
+        for (int i = 0; i < /*Double.MAX_VALUE - 1*/ 20000000; i++) {
+            pi += Math.pow(-1, i) * (4 / denominator);
+            denominator += 2;
         }
     }
 
+    Pi(int a) {
+        for (int i = 0; i < /*Double.MAX_VALUE - 1*/ a; i++) {
+            pi += Math.pow(-1, i) * (4 / denominator);
+            denominator += 2;
+        }
+    }
+    
     public double get_Pi() {
         return pi;
-    }
-
-    public double get_Pi(int i) {
-        return (pi * Math.floor((i * 100) / 100));
     }
 }

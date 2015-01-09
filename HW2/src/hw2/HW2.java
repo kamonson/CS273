@@ -21,9 +21,9 @@ public class HW2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       // HW2_1();
-       // HW2_3();
-        HW2_4();
+        // HW2_1();
+        // HW2_3();
+        HW2_4(args);
     }
 
     /**
@@ -78,8 +78,18 @@ public class HW2 {
             gerbMap.get(gerbName[i]).hop();
         }
     }
-    public static void HW2_4 (){
-        Pi cherry = new Pi();
-        System.out.printf("%1f", cherry.get_Pi());
-    };
+
+    public static void HW2_4(String[] args) {
+        if (args.length > 0 && args[0].equals(args[0])) {
+            int a = Integer.parseInt(args[0]);
+            Pi cherry = new Pi(a);
+            System.out.printf("%f\n", cherry.get_Pi());
+        } else {
+            Pi cherry = new Pi();
+            System.out.printf("%f\n", cherry.get_Pi());
+        }
+        for (int i = 0; i < 200000; i ++) {
+            System.out.printf("at %d times through the pi algarythom pi is calculated at: %f\n", i, new Pi(i).get_Pi());
+        }
+    }
 }
