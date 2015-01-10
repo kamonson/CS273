@@ -23,7 +23,9 @@ public class HW2 {
     public static void main(String[] args) {
         // HW2_1();
         // HW2_3();
-        HW2_4(args);
+        //HW2_4(args);
+        //HW2_5();
+        HW2_6();
     }
 
     /**
@@ -86,10 +88,28 @@ public class HW2 {
             System.out.printf("%f\n", cherry.get_Pi());
         } else {
             Pi cherry = new Pi();
-            System.out.printf("%f\n", cherry.get_Pi());
+            System.out.printf("%.17g\n", cherry.get_Pi());
         }
         for (int i = 0; i < 200000; i ++) {
             System.out.printf("at %d times through the pi algarythom pi is calculated at: %f\n", i, new Pi(i).get_Pi());
         }
     }
+    public static void HW2_5(){
+      java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new piGui().setVisible(true);
+            }
+        });
+    }
+    public static void HW2_6(){
+    java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new homeworkTrackerGui().setVisible(true);
+            }
+        });
+    }
 }
+
+
+
+

@@ -18,7 +18,7 @@ public class Pi {
     boolean add = true;
 
     Pi() {
-        for (int i = 0; i < /*Double.MAX_VALUE - 1*/ 20000000; i++) {
+        for (int i = 0; i < /*Double.MAX_VALUE - 1*/ 200000; i++) {
             pi += Math.pow(-1, i) * (4 / denominator);
             denominator += 2;
         }
@@ -31,6 +31,12 @@ public class Pi {
         }
     }
     
+    Pi(String a){
+        for (int i = 0; i < /*Double.MAX_VALUE - 1*/ Integer.parseInt(a); i++) {
+            pi += Math.pow(-1, i) * (4 / denominator);
+            denominator += 2;}
+    }
+
     public double get_Pi() {
         return pi;
     }
