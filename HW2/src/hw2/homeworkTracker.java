@@ -20,7 +20,7 @@ public class homeworkTracker {
     homeworkTracker() {
     }
 
-    public void set_studentGrades(String n, student s) {
+    public void setStudentGrades(String n, student s) {
         studentGrades.put(n, s);
         names.add(n);
     }
@@ -41,13 +41,5 @@ public class homeworkTracker {
         names.add(i, s);
     }
 
-    public double getAvg(String s) {
-        String k;
-        double total = 0;
-        for (int i = 0; i < studentGrades.get(s).get_grades().size(); i++) {
-            k = studentGrades.get(s).get_grades().get(i).toString();
-            total += Double.parseDouble(k);
-        }
-        return total / ((double) studentGrades.get(s).get_grades().size());
-    }
+    
 }

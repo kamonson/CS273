@@ -24,15 +24,36 @@ public class student {
     student(String name, String[] array) {
         this.name = name;
         for (int i = 0; i < array.length; i++) {
-            homework.add(array[i]);
+            double k = Double.parseDouble(array[i]);
+            homework.add(k);
         }
     }
 
-    public String get_name() {
+    public String getName() {
         return name;
     }
 
-    public ArrayList get_grades() {
+    public ArrayList getGrades() {
         return homework;
+    }
+
+    public double getAvg() {
+        String k;
+        double total = 0;
+        for (int i = 0; i < getGrades().size(); i++) {
+            k = getGrades().get(i).toString();
+            total += Double.parseDouble(k);
+        }
+        return total / ((double) getGrades().size());
+    }
+
+    public double getMax() {
+        getGrades().sort(null);
+        return (double) getGrades().get(homework.size()-1);
+    }
+    
+    public double getMin() {
+        getGrades().sort(null);
+        return (double) getGrades().get(0);
     }
 }
