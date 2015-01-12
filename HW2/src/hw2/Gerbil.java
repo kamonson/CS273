@@ -6,8 +6,8 @@
 package hw2;
 
 /**
- * Gerbil Class for HW2.1 and HW2.2 from P2 11.2 and 11.3 no arg constructor creates a gerbil and
- * gives it the number of one
+ * Gerbil Class for HW2.1 and HW2.2 from P2 11.2 and 11.3 no arg constructor
+ * creates a gerbil and gives it the number of one
  *
  * @author Zeus
  */

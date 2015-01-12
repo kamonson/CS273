@@ -8,6 +8,8 @@ package hw2;
 import java.util.ArrayList;
 
 /**
+ * Student class containing a name and an arrayList of grades has methods to
+ * return min max and avg grades
  *
  * @author kamonson17
  */
@@ -49,9 +51,9 @@ public class student {
 
     public double getMax() {
         getGrades().sort(null);
-        return (double) getGrades().get(homework.size()-1);
+        return (double) getGrades().get(homework.size() - 1);
     }
-    
+
     public double getMin() {
         getGrades().sort(null);
         return (double) getGrades().get(0);

@@ -6,14 +6,29 @@
 package hw2;
 
 /**
+ * Parent class cookies has set and get functions for brand and cost
  *
  * @author kyleb_000
  */
 public class GSCookies {
+
     private String brand = "Yummie";
     private double cost = 0;
-    public void setBrand(String brand){this.brand = brand;}
-    public void setCost (double cost){this.cost = cost;}
-    public String getBrand () {return brand;}
-    public double getCost () {return cost;};
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+;
 }

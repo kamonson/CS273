@@ -8,11 +8,18 @@ package hw2;
 import javax.swing.DefaultListModel;
 
 /**
+ * GUI for HW2_6 when button clicked student is created with the array of
+ * scores, student's name is stored as a key for the HashMap and the student as
+ * the object. when the student is selected min max and avg are retrieved for
+ * the selected student and added to the textpane, renews when another student
+ * is clicked
  *
  * @author kamonson17
  */
 public class homeworkTrackerGui extends javax.swing.JFrame {
-private homeworkTracker h = new homeworkTracker();
+
+    private homeworkTracker h = new homeworkTracker();
+
     /**
      * Creates new form homeworkTracker
      */
@@ -135,25 +142,25 @@ private homeworkTracker h = new homeworkTracker();
 
     private void textNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNameActionPerformed
         //((DefaultListModel)listGrades.getModel()).addElement(h.studentGrades.get(textName.getText()).getGrades().toString());
-        
+
     }//GEN-LAST:event_textNameActionPerformed
-    
+
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
         student s = new student(textName.getText(), (textGrades.getText().split(",")));
         h.setStudentGrades(s.getName(), s);
-        ((DefaultListModel)listStudent.getModel()).addElement(s.getName());
+        ((DefaultListModel) listStudent.getModel()).addElement(s.getName());
     }//GEN-LAST:event_buttonAddActionPerformed
 
     private void listStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listStudentMouseClicked
-       //listGrades.removeAll();
-        String s1 = String.valueOf(h.studentGrades.get((String)listStudent.getModel().getElementAt(listStudent.getSelectedIndex())).getMax());
-        String s2 = String.valueOf(h.studentGrades.get((String)listStudent.getModel().getElementAt(listStudent.getSelectedIndex())).getMin());
-        String s3 = String.valueOf(h.studentGrades.get((String)listStudent.getModel().getElementAt(listStudent.getSelectedIndex())).getAvg());
+        //listGrades.removeAll();
+        String s1 = String.valueOf(h.studentGrades.get((String) listStudent.getModel().getElementAt(listStudent.getSelectedIndex())).getMax());
+        String s2 = String.valueOf(h.studentGrades.get((String) listStudent.getModel().getElementAt(listStudent.getSelectedIndex())).getMin());
+        String s3 = String.valueOf(h.studentGrades.get((String) listStudent.getModel().getElementAt(listStudent.getSelectedIndex())).getAvg());
         textGrade.setText("Max: " + " " + s1 + "\n" + ("Min: " + s2) + "\n" + "Avg: " + s3);
 //((DefaultListModel)listGrades.getModel()).addElement(h.studentGrades.get((String)listStudent.getModel().getElementAt(listStudent.getSelectedIndex())).getMax());
-       //((DefaultListModel)listGrades.getModel()).addElement(h.studentGrades.get(textName.getText()).getMin());
-       //((DefaultListModel)listGrades.getModel()).addElement(h.studentGrades.get(textName.getText()).getAvg());
-       //((DefaultListModel)listGrades.getModel()).addElement("Test");
+        //((DefaultListModel)listGrades.getModel()).addElement(h.studentGrades.get(textName.getText()).getMin());
+        //((DefaultListModel)listGrades.getModel()).addElement(h.studentGrades.get(textName.getText()).getAvg());
+        //((DefaultListModel)listGrades.getModel()).addElement("Test");
     }//GEN-LAST:event_listStudentMouseClicked
 
     /**

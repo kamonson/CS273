@@ -5,10 +5,8 @@
  */
 package hw2;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 /**
+ * Cookie tracker for making new items and tracking numbers sold and profits
  *
  * @author kyleb_000
  */

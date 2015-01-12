@@ -6,12 +6,14 @@
 package hw2;
 
 /**
+ * sub class of GSCookies identifies brand and cost
  *
  * @author kyleb_000
  */
 public class ChocolateChip extends GSCookies {
-    ChocolateChip () {
-    setBrand("Chocolate Chip");
-    setCost(5);
+
+    ChocolateChip() {
+        setBrand("Chocolate Chip");
+        setCost(5);
     }
 }

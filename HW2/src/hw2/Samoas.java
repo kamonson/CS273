@@ -6,12 +6,14 @@
 package hw2;
 
 /**
+ * sub class of GSCookies identifies brand and cost
  *
  * @author kyleb_000
  */
 public class Samoas extends GSCookies {
-    Samoas (){
-    setBrand("Samoas");
-    setCost(4);
+
+    Samoas() {
+        setBrand("Samoas");
+        setCost(4);
     }
 }

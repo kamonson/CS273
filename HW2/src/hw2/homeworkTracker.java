@@ -9,12 +9,15 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 /**
+ * class to create students and homework and store their data
  *
  * @author kamonson17
  */
 public class homeworkTracker {
 
+    //HashMap of student objects
     HashMap<String, student> studentGrades = new HashMap<String, student>();
+    //arrayList of keys
     ArrayList names = new ArrayList();
 
     homeworkTracker() {
@@ -40,6 +43,4 @@ public class homeworkTracker {
     public void addStudentAt(int i, String s) {
         names.add(i, s);
     }
-
-    
 }

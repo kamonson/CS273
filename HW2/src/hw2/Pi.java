@@ -8,7 +8,7 @@ package hw2;
 import java.math.*;
 
 /**
- *
+ * calculates pi from the pi calculation used in HW 2_4 and 2_5
  * @author kamonson17
  */
 public class Pi {

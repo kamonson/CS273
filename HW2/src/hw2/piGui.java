@@ -6,6 +6,9 @@
 package hw2;
 
 /**
+ * GUI to calculate pie, reuses pi class and accepts the string entered as text
+ * to calculate pi running the formula that number of time when the button is
+ * clicked
  *
  * @author kamonson17
  */

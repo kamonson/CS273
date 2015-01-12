@@ -18,14 +18,16 @@ import java.util.HashMap;
 public class HW2 {
 
     /**
-     * @param args the command line arguments
+     * Main calls homework functions. HW2_1() contains HW2_1 and HW2_2
+     *
+     * @param args the command line arguments for HW2_4
      */
     public static void main(String[] args) {
-        // HW2_1();
-        // HW2_3();
-        // HW2_4(args);
-        // HW2_5();
-        // HW2_6();
+        HW2_1();
+        HW2_3();
+        HW2_4(args);
+        HW2_5();
+        HW2_6();
         HW2_7();
     }
 
@@ -59,7 +61,6 @@ public class HW2 {
         while (it.hasNext()) {
             ((Gerbil) it.next()).hop();
         }
-
     }
 
     /**
@@ -82,6 +83,15 @@ public class HW2 {
         }
     }
 
+    /**
+     * HW2_4 calculates the value of pie from the infinite series: π = 4 – 4/3 +
+     * 4/5 – 4/7 + 4/9 – 4/11 + … Accepts command line argument to decide how
+     * far into the series to go Print a table displaying the accuracy of pi at
+     * each iteration of the first 200,000 items in the series
+     *
+     * @param args used to pass command line arguments for the number of times
+     * to run formula
+     */
     public static void HW2_4(String[] args) {
         if (args.length > 0 && args[0].equals(args[0])) {
             int a = Integer.parseInt(args[0]);
@@ -91,25 +101,41 @@ public class HW2 {
             Pi cherry = new Pi();
             System.out.printf("%.17g\n", cherry.get_Pi());
         }
-        for (int i = 0; i < 200000; i ++) {
+        for (int i = 0; i < 200000; i++) {
             System.out.printf("at %d times through the pi algarythom pi is calculated at: %f\n", i, new Pi(i).get_Pi());
         }
     }
-    public static void HW2_5(){
-      java.awt.EventQueue.invokeLater(new Runnable() {
+
+    /**
+     * Pi GUI, user presses a button and calculates pie to the desired number of
+     * steps in the series based on HW2_4's classes
+     */
+    public static void HW2_5() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new piGui().setVisible(true);
             }
         });
     }
-    public static void HW2_6(){
-    java.awt.EventQueue.invokeLater(new Runnable() {
+
+    /**
+     * User interface that allows the user to add a student and their scores,
+     * when the name is clicked on displays min max and avg scores for that
+     * student
+     */
+    public static void HW2_6() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new homeworkTrackerGui().setVisible(true);
             }
         });
     }
-    public static void HW2_7(){
+
+    /**
+     * App tracks girl scout cookie sales, keeps running total of number of
+     * items sold, and running total of sales
+     */
+    public static void HW2_7() {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GSCookiesGUI().setVisible(true);
@@ -117,7 +143,3 @@ public class HW2 {
         });
     }
 }
-
-
-
-
