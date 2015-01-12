@@ -73,6 +73,9 @@ public class HW2 {
         HashMap<String, Gerbil> gerbMap = new HashMap<String, Gerbil>();
         ArrayList<Gerbil> gerbList = new ArrayList<Gerbil>();
         String[] gerbName = {"Tim", "Kalvin", "Zeus", "Jimmy", "Kyle"};
+        //PT: Instead of storing the keys in a separate array, use the 
+        //    keySet method on HashMaps to get the keys, and iterate
+        //    through those. -2
         for (int i = 0; i < 5; i++) {
             gerbList.add(new Gerbil(i));
             gerbMap.put(gerbName[i], gerbList.get(i));
@@ -98,6 +101,7 @@ public class HW2 {
             Pi cherry = new Pi(a);
             System.out.printf("%f\n", cherry.get_Pi());
         } else {
+            //PT: I prefer pumpkin, but cherry works!
             Pi cherry = new Pi();
             System.out.printf("%.17g\n", cherry.get_Pi());
         }

@@ -24,6 +24,8 @@ public class homeworkTracker {
     }
 
     public void setStudentGrades(String n, student s) {
+        //PT: what's a bit tricky here is that students can have the same name,
+        //   so using name as key for the hashmap isn't going to work always
         studentGrades.put(n, s);
         names.add(n);
     }

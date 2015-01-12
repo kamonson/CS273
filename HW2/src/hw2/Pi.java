@@ -18,6 +18,8 @@ public class Pi {
     boolean add = true;
 
     Pi() {
+        //PT: these for loops are copy/paster. Instead, make a private function
+        //    that does the loop, and call it from the constructors. -2
         for (int i = 0; i < /*Double.MAX_VALUE - 1*/ 200000; i++) {
             pi += Math.pow(-1, i) * (4 / denominator);
             denominator += 2;
