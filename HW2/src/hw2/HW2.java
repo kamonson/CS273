@@ -23,9 +23,10 @@ public class HW2 {
     public static void main(String[] args) {
         // HW2_1();
         // HW2_3();
-        //HW2_4(args);
-        //HW2_5();
-        HW2_6();
+        // HW2_4(args);
+        // HW2_5();
+        // HW2_6();
+        HW2_7();
     }
 
     /**
@@ -105,6 +106,13 @@ public class HW2 {
     java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new homeworkTrackerGui().setVisible(true);
+            }
+        });
+    }
+    public static void HW2_7(){
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new GSCookiesGUI().setVisible(true);
             }
         });
     }
