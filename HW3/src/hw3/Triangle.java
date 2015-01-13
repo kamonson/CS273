@@ -21,16 +21,20 @@ public class Triangle extends Shapes {
         this.l3 = 0;
     }
 
-    Triangle(int l1, int l2, int l3) {
-        this.l1 = l1;
-        this.l2 = l2;
-        this.l3 = l3;
+    Triangle(int _l1, int _l2, int _l3) {
+        if (((_l1 + _l2) <= _l3) || ((_l1 + _l3) <= _l2) || ((_l2 + _l3) <= _l1)) {
+            throw new IllegalArgumentException();
+        }
+        this.l1 = _l1;
+        this.l2 = _l2;
+        this.l3 = _l3;
     }
 
     @Override
     public double getArea() {
-        return Math.sqrt(getParim()*(getParim()-l1)*(getParim()-l2)*(getParim()-l3));
+        return Math.sqrt(getParim() * (getParim() - l1) * (getParim() - l2) * (getParim() - l3));
     }
+
     @Override
     public double getParim() {
         return l1 + l2 + l3;
