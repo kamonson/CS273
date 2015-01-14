@@ -115,28 +115,32 @@ public class HW3 {
     }
 
     public static void HW3_3() {
-        String Y = "2015";
-        String M = "1";
-        String D = "31";
-        EventManagerStreamManager EM = new EventManagerStreamManager();
         
-//        EM.addEvent("2015", "1", "31", "Christin's B-Day", "Buy her a present");
-//        EM.writeToStream();
-//        EM.addEvent("2015", "1", "31", "Christin's B-Day", "Buy her many presents");
-//        EM.writeToStream();
-        EM.readFromStream();
-
-        for (int i = 0; i < EM.getDaysEvents(Y, M, D).size(); i++){
-            Events E = EM.getDaysEvents(Y, M, D).get(i);
-            System.out.println(E.getEventTitle());
-            System.out.println(E.getEventBody());
-            System.out.println(E.getEventNumber());
-        }
-        EM.setRunningNumber();
-//        EM.getDaysEvents(Y, M, D).stream().forEach((i) -> {
-//            Events E = i;
-//            System.out.print(E.getEventBody());
-//        });
+        //test Code Ignore//
+//        String Y = "2015";
+//        String M = "1";
+//        String D = "31";
+//        EventManagerStreamManager EM = new EventManagerStreamManager();
+//        
+////        EM.addEvent("2015", "1", "31", "Christin's B-Day", "Buy her a present");
+////        EM.writeToStream();
+////        EM.addEvent("2015", "1", "31", "Christin's B-Day", "Buy her many presents");
+////        EM.writeToStream();
+//        EM.readFromStream();
+//
+//        for (int i = 0; i < EM.getDaysEvents(Y, M, D).size(); i++){
+//            Events E = EM.getDaysEvents(Y, M, D).get(i);
+//            System.out.println(E.getEventTitle());
+//            System.out.println(E.getEventBody());
+//            System.out.println(E.getEventNumber());
+//        }
+//        EM.setRunningNumber();
+////        EM.getDaysEvents(Y, M, D).stream().forEach((i) -> {
+////            Events E = i;
+////            System.out.print(E.getEventBody());
+////        });
+//EM.writeToStream();
+        
     }
-    //EM.writeToStream();
+
 }
