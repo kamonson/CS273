@@ -21,6 +21,8 @@ public class EventManager {
     private String year = "none";
     private String month = "none";
     private String day = "none";
+    private String eventTitle = "none";
+    private String eventBody = "none";
     private String eventNumber = "none";
     private int RunningNumber = 0;
 
@@ -32,6 +34,12 @@ public class EventManager {
         hashDays.put(e.getDay(), hashEvents);
         hashMonth.put(e.getMonth(), hashDays);
         hashYear.put(e.getYear(), hashMonth);
+        this.eventNumber = e.getEventNumber();
+        this.year = e.getYear();
+        this.month = e.getMonth();
+        this.day = e.getDay();
+        this.eventTitle = e.getEventTitle();
+        this.eventBody = e.getEventBody();
     }
 
     public ArrayList getDaysEventsTitle(String Y, String M, String D) {
@@ -40,7 +48,7 @@ public class EventManager {
             if (hashEvents.get(String.join(Y + M + D + String.valueOf(i))) == null) {
                 continue;
             } else {
-                array.add(hashEvents.get(String.join(Y + M + D + String.valueOf(i))).getEventTitle());
+                array.add(hashEvents.get(Y + M + D + String.valueOf(i)).getEventTitle());
             }
         }
         return array;
@@ -58,15 +66,28 @@ public class EventManager {
         return array;
     }
 
-    public ArrayList getDaysEvents(String Y, String M, String D) {
+    public ArrayList <Events> getDaysEvents(String Y, String M, String D) {
         ArrayList<Events> array = new ArrayList<Events>();
         for (int i = 0; i < hashEvents.size(); i++) {
-            if (hashEvents.get(String.join(Y + M + D + String.valueOf(i))) == null) {
+            if (hashEvents.get(Y + M + D + String.valueOf(i)) == null) {
                 continue;
             } else {
-                array.add(hashEvents.get(String.join(Y + M + D + String.valueOf(i))));
+                array.add(hashEvents.get(Y + M + D + String.valueOf(i)));
             }
         }
         return array;
     }
+    public String getEventNumber(){return eventNumber;}
+    public String getYear(){return year;}
+    public String getMonth(){return month;}
+    public String getDay(){return day;}
+    public String getEventTitle(){return eventTitle;}
+    public String getEventBody() {return eventBody;}
+    
+    public void setEventNumber(String EN) {this.eventNumber = EN;}
+    public void setYear(String Y){this.year = Y;}
+    public void setMonth(String M){this.month = M;}
+    public void setDay (String D) {this.day = D;}
+    public void setEventTitle (String ET) {this.eventTitle = ET;}
+    public void setEventBody (String EB) {this.eventBody = EB;}
 }

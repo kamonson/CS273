@@ -18,8 +18,8 @@ public class HW3 {
      * @param args the command line arguments Calls functions for Homework 3
      */
     public static void main(String[] args) {
-        HW3_1();
-        HW3_2();
+        //HW3_1();
+        //HW3_2();
         HW3_3();
     }
 
@@ -115,6 +115,12 @@ public class HW3 {
     }
 
     public static void HW3_3() {
+        EventManagerStreamManager EM = new EventManagerStreamManager();
+        EM.addEvent("2015", "1", "31", "Christin's B-Day", "Buy her a present");
+        EM.readFromStream();
+        Events E = EM.getDaysEvents("2015", "1", "31").get(0);
+        System.out.print(E.getEventBody());
+        EM.writeToStream();
 
     }
 }

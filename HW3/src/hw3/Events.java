@@ -76,7 +76,7 @@ public class Events {
     }
 
     public void setEventNumber(int RunningNumber) {
-        this.eventNumber = String.join(year + month + day + String.valueOf(RunningNumber));
+        this.eventNumber = year + month + day + String.valueOf(RunningNumber);
     }
 
     @Override
