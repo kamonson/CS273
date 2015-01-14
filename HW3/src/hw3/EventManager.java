@@ -27,7 +27,7 @@ public class EventManager {
     private int RunningNumber = 0;
 
     public void addEvent(String Y, String M, String D, String ET, String EB) {
-        this.RunningNumber += RunningNumber; //this makes it start at 1
+        this.RunningNumber += 1; //this makes it start at 1
         Events e = new Events(Y, M, D, ET, EB, RunningNumber);//does the add
         //cascade of maps containing maps for easy look up
         hashEvents.put(e.getEventNumber(), e);
@@ -44,8 +44,8 @@ public class EventManager {
 
     public ArrayList getDaysEventsTitle(String Y, String M, String D) {
         ArrayList<String> array = new ArrayList<String>();
-        for (int i = 0; i < hashEvents.size(); i++) {
-            if (hashEvents.get(String.join(Y + M + D + String.valueOf(i))) == null) {
+        for (int i = 0; i <=hashEvents.size(); i++) {
+            if (hashEvents.get(Y + M + D + String.valueOf(i)) == null) {
                 continue;
             } else {
                 array.add(hashEvents.get(Y + M + D + String.valueOf(i)).getEventTitle());
@@ -56,20 +56,21 @@ public class EventManager {
 
     public ArrayList getDaysEventsBody(String Y, String M, String D) {
         ArrayList<String> array = new ArrayList<String>();
-        for (int i = 0; i < hashEvents.size(); i++) {
-            if (hashEvents.get(String.join(Y + M + D + String.valueOf(i))) == null) {
+      for (int i = 0; i <= hashEvents.size(); i++) {
+            if (hashEvents.get(Y + M + D + String.valueOf(i)) == null) {
                 continue;
             } else {
-                array.add(hashEvents.get(String.join(Y + M + D + String.valueOf(i))).getEventBody());
+                array.add(hashEvents.get(Y + M + D + String.valueOf(i)).getEventBody());
             }
         }
         return array;
     }
 
-    public ArrayList <Events> getDaysEvents(String Y, String M, String D) {
+    public ArrayList<Events> getDaysEvents(String Y, String M, String D) {
         ArrayList<Events> array = new ArrayList<Events>();
-        for (int i = 0; i < hashEvents.size(); i++) {
-            if (hashEvents.get(Y + M + D + String.valueOf(i)) == null) {
+        for (int i = 0; i <= hashEvents.size() ; i++) {
+            String s =Y + M + D + String.valueOf(i);
+            if (hashEvents.get(s) == null) {
                 continue;
             } else {
                 array.add(hashEvents.get(Y + M + D + String.valueOf(i)));
@@ -77,17 +78,60 @@ public class EventManager {
         }
         return array;
     }
-    public String getEventNumber(){return eventNumber;}
-    public String getYear(){return year;}
-    public String getMonth(){return month;}
-    public String getDay(){return day;}
-    public String getEventTitle(){return eventTitle;}
-    public String getEventBody() {return eventBody;}
-    
-    public void setEventNumber(String EN) {this.eventNumber = EN;}
-    public void setYear(String Y){this.year = Y;}
-    public void setMonth(String M){this.month = M;}
-    public void setDay (String D) {this.day = D;}
-    public void setEventTitle (String ET) {this.eventTitle = ET;}
-    public void setEventBody (String EB) {this.eventBody = EB;}
+
+    public String getEventNumber() {
+        return eventNumber;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public String getEventTitle() {
+        return eventTitle;
+    }
+
+    public String getEventBody() {
+        return eventBody;
+    }
+
+    public void setEventNumber(String EN) {
+        this.eventNumber = EN;
+    }
+
+    public void setYear(String Y) {
+        this.year = Y;
+    }
+
+    public void setMonth(String M) {
+        this.month = M;
+    }
+
+    public void setDay(String D) {
+        this.day = D;
+    }
+
+    public void setEventTitle(String ET) {
+        this.eventTitle = ET;
+    }
+
+    public void setEventBody(String EB) {
+        this.eventBody = EB;
+    }
+
+    public void setRunningNumber(int RN) {
+        this.RunningNumber = RN;
+    }
+
+    public int getRunningNumber() {
+        return RunningNumber;
+    }
 }
