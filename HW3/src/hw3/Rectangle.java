@@ -8,6 +8,8 @@ package hw3;
 import java.util.Scanner;
 
 /**
+ * overides Shapes getArea, getParim calculates area, parimeter and validates if
+ * arguments passed can be the shape
  *
  * @author kamonson17
  */

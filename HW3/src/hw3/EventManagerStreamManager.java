@@ -8,6 +8,10 @@ package hw3;
 import java.io.*;
 
 /**
+ * Write RunningNumber to text for hashmap key, and events for reuse after
+ * program termination Read from that text file to use the information stored
+ * Read and set RunningNumber to continue unique keys Exceptions throw here in
+ * commandline to eaisly find where the i/o faild custom text added
  *
  * @author kamonson17
  */
@@ -21,7 +25,7 @@ public class EventManagerStreamManager extends EventManager {
         File fWrite = new File("textFileEvents");
         try {
             BufferedWriter wrtrRN = new BufferedWriter(new FileWriter(fWriteRN));
-            wrtrRN.write(String.valueOf(getRunningNumber()));
+            wrtrRN.write(String.valueOf(getRunningNumber() + 1));
             wrtrRN.close();
             BufferedWriter wrtr = new BufferedWriter(new FileWriter(fWrite, true));
             wrtr.write(getEventNumber());

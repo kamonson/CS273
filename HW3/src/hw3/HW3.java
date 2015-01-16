@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.util.regex.*;
 
 /**
- *
+ *Homework 3 functions in main call solutions
  * @author kyleb_000
  */
 public class HW3 {
@@ -18,10 +18,13 @@ public class HW3 {
      * @param args the command line arguments Calls functions for Homework 3
      */
     public static void main(String[] args) {
-        //HW3_1();
-        //HW3_2();
+        HW3_1();
+        HW3_2();
         HW3_3();
     }
+    /*
+     *Program throw exceptions when input not a integer prints array with min max and avg from numbers class
+     */
 
     public static void HW3_1() {
         double[] numArray = new double[10];
@@ -45,6 +48,10 @@ public class HW3 {
         System.out.printf(
                 "The avg number is: %s\n", String.valueOf(n.getAvg()));
     }
+    /*
+     Make user defined rectangle, triangle and elipse; calcluate there parimeter and area, throw exceptions when incorect
+     use shapes class with sub class elipse rectangel triangel
+     */
 
     public static void HW3_2() {
         Rectangle r = makeRectangle();
@@ -57,6 +64,9 @@ public class HW3 {
         System.out.printf("Area: %f", e.getArea());
         System.out.printf("\nPermiter: %f", e.getParim());
     }
+    /*
+     user defined Rectangle, throw exception if dementions inccorect
+     */
 
     public static Rectangle makeRectangle() {
         Rectangle r = new Rectangle();
@@ -75,6 +85,9 @@ public class HW3 {
         }
         return r;
     }
+    /*
+     user defined Triangle, throw exception if dementions inccorect
+     */
 
     public static Triangle makeTriangle() {
         Triangle t = new Triangle();
@@ -95,6 +108,9 @@ public class HW3 {
         }
         return t;
     }
+    /*
+     user defined Ellipse, throw exception if dementions inccorect
+     */
 
     public static Ellipse makeEllipse() {
         Ellipse e = new Ellipse();
@@ -113,33 +129,15 @@ public class HW3 {
         }
         return e;
     }
+    /*
+     Runs GUI allowing users to add and look up events
+     write events to text file
+     write runningnumber used as hashkey to textfile
+     each event stored in hashmap with days key, hashmap days stored in hashmap of months with month key, months stored in years with years key
+     throws exceptions when invalid date (including leap year) handled with popup saying that you cannot use that day, in console exceptions thrown and displayed with slightly more useful information
+     */
 
     public static void HW3_3() {
-        
-        //test Code Ignore//
-//        String Y = "2015";
-//        String M = "1";
-//        String D = "31";
-//        EventManagerStreamManager EM = new EventManagerStreamManager();
-//        
-////        EM.addEvent("2015", "1", "31", "Christin's B-Day", "Buy her a present");
-////        EM.writeToStream();
-////        EM.addEvent("2015", "1", "31", "Christin's B-Day", "Buy her many presents");
-////        EM.writeToStream();
-//        EM.readFromStream();
-//
-//        for (int i = 0; i < EM.getDaysEvents(Y, M, D).size(); i++){
-//            Events E = EM.getDaysEvents(Y, M, D).get(i);
-//            System.out.println(E.getEventTitle());
-//            System.out.println(E.getEventBody());
-//            System.out.println(E.getEventNumber());
-//        }
-//        EM.setRunningNumber();
-////        EM.getDaysEvents(Y, M, D).stream().forEach((i) -> {
-////            Events E = i;
-////            System.out.print(E.getEventBody());
-////        });
-//EM.writeToStream();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 GUIEventTracker dialog = new GUIEventTracker(new javax.swing.JFrame(), true);

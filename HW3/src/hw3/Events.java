@@ -6,6 +6,8 @@
 package hw3;
 
 /**
+ * Events contain a eventNumber (Year+Month+day+runningnumber = key for hashMap)
+ * Overrides toString which was not used
  *
  * @author kamonson17
  */
@@ -82,7 +84,6 @@ public class Events {
     @Override
     public String toString() {
         return String.format("%s %s, %s: Title: %s Body: %s", month, day, year, eventTitle, eventBody);
-        //return String.format(month, " ", day, ",", year, ": ", eventTitle, "   ", eventBody);
     }
 ;
 }

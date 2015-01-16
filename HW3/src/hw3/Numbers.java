@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 /**
  *
+ * Basic number function to add, sort return avg min and max
+ *
  * @author kamonson17
  */
 public class Numbers {
@@ -24,6 +26,9 @@ public class Numbers {
         }
         sortNumbers();
     }
+    /*
+     add
+     */
 
     public void addNumbers(int[] array) {
         for (int i = 0; i < array.length; i++) {
@@ -31,6 +36,9 @@ public class Numbers {
             sortNumbers();
         }
     }
+    /*
+     sort
+     */
 
     public void sortNumbers() {
         numbers.sort(null);
@@ -42,14 +50,23 @@ public class Numbers {
         }
         this.avg = avgN / ((double) numbers.size());
     }
+    /*
+     provide min number
+     */
 
     public double getMin() {
         return min;
     }
+    /*
+     provide max number
+     */
 
     public double getMax() {
         return max;
     }
+    /*
+     provide avg number
+     */
 
     public double getAvg() {
         return avg;

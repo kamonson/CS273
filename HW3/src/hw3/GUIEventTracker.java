@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * Custom Variables Year, Month, Day, Title, Body final DATE_FORMAT to check for
+ * correct date if not throw exception handled with popup window with nice text
  *
  * @author kamonson17
  */
@@ -54,6 +56,7 @@ public class GUIEventTracker extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaAddBody = new javax.swing.JTextArea();
         jButtonAdd = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jSpinnerLUMonth = new javax.swing.JSpinner();
         jSpinnerLUDay = new javax.swing.JSpinner();
@@ -61,21 +64,31 @@ public class GUIEventTracker extends javax.swing.JDialog {
         jButtonLU = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableLUTable = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTextFieldAddTitle.setText("jTextField1");
+        jSpinnerAddMonth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+
+        jSpinnerAddDay.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
+
+        jSpinnerAddYear.setModel(new javax.swing.SpinnerNumberModel(15, 15, 20, 1));
+
+        jTextFieldAddTitle.setText("<Event Title>");
 
         jTextAreaAddBody.setColumns(20);
         jTextAreaAddBody.setRows(5);
+        jTextAreaAddBody.setText("<Event Body\nFree text area to add addtional details about event>");
         jScrollPane1.setViewportView(jTextAreaAddBody);
 
-        jButtonAdd.setText("jButton1");
+        jButtonAdd.setText("Add");
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddActionPerformed(evt);
             }
         });
+
+        jLabel1.setText("20");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -83,17 +96,20 @@ public class GUIEventTracker extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jSpinnerAddMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSpinnerAddDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jSpinnerAddMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSpinnerAddDay, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSpinnerAddYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextFieldAddTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addGap(4, 4, 4)
+                        .addComponent(jTextFieldAddTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE))))
             .addComponent(jScrollPane1)
         );
         jPanel2Layout.setVerticalGroup(
@@ -104,7 +120,8 @@ public class GUIEventTracker extends javax.swing.JDialog {
                     .addComponent(jSpinnerAddMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSpinnerAddDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSpinnerAddYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldAddTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldAddTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -112,15 +129,15 @@ public class GUIEventTracker extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("tab2", jPanel2);
+        jTabbedPane1.addTab("Add", jPanel2);
 
         jSpinnerLUMonth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
-        jSpinnerLUDay.setModel(new javax.swing.SpinnerNumberModel(31, 1, 31, 1));
+        jSpinnerLUDay.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
 
-        jSpinnerLUYear.setModel(new javax.swing.SpinnerNumberModel(15, 15, 18, 1));
+        jSpinnerLUYear.setModel(new javax.swing.SpinnerNumberModel(15, 15, 20, 1));
 
-        jButtonLU.setText("jButton2");
+        jButtonLU.setText("Look Up");
         jButtonLU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLUActionPerformed(evt);
@@ -132,7 +149,7 @@ public class GUIEventTracker extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Event Title", "Event Body"
+                "Event Title", "Event Body (Time, Location, Details, etc)"
             }
         ) {
             Class[] types = new Class [] {
@@ -145,20 +162,24 @@ public class GUIEventTracker extends javax.swing.JDialog {
         });
         jScrollPane3.setViewportView(jTableLUTable);
 
+        jLabel2.setText("20");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSpinnerLUMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jSpinnerLUDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jSpinnerLUMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSpinnerLUDay, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerLUYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jButtonLU, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +188,8 @@ public class GUIEventTracker extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jSpinnerLUMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSpinnerLUDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinnerLUYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinnerLUYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -175,7 +197,7 @@ public class GUIEventTracker extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("tab1", jPanel1);
+        jTabbedPane1.addTab("Look Up", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,11 +212,18 @@ public class GUIEventTracker extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+/*
+     Add rows to table
+     */
 
     public void addRow(String C1, String C2) {
         DefaultTableModel model = (DefaultTableModel) jTableLUTable.getModel();
         model.addRow(new Object[]{C1, C2});
     }
+    /*
+     Clear table so that events don't stack up
+     not used because it was not working correctly
+     */
 
     public void ClearTable() {
         DefaultTableModel model = (DefaultTableModel) jTableLUTable.getModel();
@@ -203,11 +232,17 @@ public class GUIEventTracker extends javax.swing.JDialog {
             model.removeRow(i);
         }
     }
+    /*
+     Popup to handle wrong date exception
+     */
 
     public static void Popup(String MSG) {
         JFrame popup = new JFrame("");
         JOptionPane.showMessageDialog(popup, MSG);
     }
+    /*
+     Checks to see if date correct if not throw exception
+     */
 
     public static boolean CheckDate(String date) {
         try {
@@ -221,7 +256,9 @@ public class GUIEventTracker extends javax.swing.JDialog {
         }
     }
 
-
+    /*
+     Add Events, check date accuracy 
+     */
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         EM.setRunningNumber();
         Year = "20" + String.valueOf(jSpinnerAddYear.getValue());
@@ -234,9 +271,11 @@ public class GUIEventTracker extends javax.swing.JDialog {
             EM.writeToStream();
         }
     }//GEN-LAST:event_jButtonAddActionPerformed
-
+    /*
+     LookUp events, check date for accuracy
+     known issue table does not clear after switching dates...could not get to correct
+     */
     private void jButtonLUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLUActionPerformed
-        ClearTable();
         Year = "20" + String.valueOf(jSpinnerLUYear.getValue());
         Month = String.valueOf(jSpinnerLUMonth.getValue());
         Day = String.valueOf(jSpinnerLUDay.getValue());
@@ -300,6 +339,8 @@ public class GUIEventTracker extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonLU;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

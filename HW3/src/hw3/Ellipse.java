@@ -6,6 +6,8 @@ package hw3;
  * and open the template in the editor.
  */
 /**
+ * overides Shapes getArea, getParim calculates area, parimeter and validates if
+ * arguments passed can be the shape
  *
  * @author kamonson17
  */

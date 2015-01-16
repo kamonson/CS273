@@ -9,6 +9,11 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 /**
+ * core of the program contains HashMaps Events, Days, Month, Year used to look
+ * up smoothly adds events clearHM used to clear hashmap, was being used to try
+ * and fix duplication of events on look up, no success getdays events returns
+ * array of events for that day, getdaysevents body/title returns text of
+ * body/title slew of set/gets
  *
  * @author kamonson17
  */
@@ -42,9 +47,13 @@ public class EventManager {
         this.eventBody = e.getEventBody();
     }
 
+    public void clearHM() {
+        hashEvents.clear();
+    }
+
     public ArrayList getDaysEventsTitle(String Y, String M, String D) {
         ArrayList<String> array = new ArrayList<String>();
-        for (int i = 0; i <=hashEvents.size(); i++) {
+        for (int i = 0; i <= getRunningNumber(); i++) {
             if (hashEvents.get(Y + M + D + String.valueOf(i)) == null) {
                 continue;
             } else {
@@ -56,7 +65,7 @@ public class EventManager {
 
     public ArrayList getDaysEventsBody(String Y, String M, String D) {
         ArrayList<String> array = new ArrayList<String>();
-      for (int i = 0; i <= hashEvents.size(); i++) {
+        for (int i = 0; i <= getRunningNumber(); i++) {
             if (hashEvents.get(Y + M + D + String.valueOf(i)) == null) {
                 continue;
             } else {
@@ -68,8 +77,8 @@ public class EventManager {
 
     public ArrayList<Events> getDaysEvents(String Y, String M, String D) {
         ArrayList<Events> array = new ArrayList<Events>();
-        for (int i = 0; i <= hashEvents.size() ; i++) {
-            String s =Y + M + D + String.valueOf(i);
+        for (int i = 0; i <= getRunningNumber(); i++) {
+            String s = Y + M + D + String.valueOf(i);
             if (hashEvents.get(s) == null) {
                 continue;
             } else {
