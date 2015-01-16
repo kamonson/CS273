@@ -79,6 +79,7 @@ public class GUIEventTracker extends javax.swing.JDialog {
         jTextAreaAddBody.setColumns(20);
         jTextAreaAddBody.setRows(5);
         jTextAreaAddBody.setText("<Event Body\nFree text area to add addtional details about event>");
+        jTextAreaAddBody.setToolTipText("");
         jScrollPane1.setViewportView(jTextAreaAddBody);
 
         jButtonAdd.setText("Add");
@@ -227,15 +228,19 @@ public class GUIEventTracker extends javax.swing.JDialog {
 
     public void ClearTable() {
         DefaultTableModel model = (DefaultTableModel) jTableLUTable.getModel();
-        int size = model.getRowCount();
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < model.getRowCount(); i++) {
             model.removeRow(i);
         }
     }
+
+    public void ZeroRow() {
+        DefaultTableModel model = (DefaultTableModel) jTableLUTable.getModel();
+        model.setRowCount(0);
+    }
+
     /*
      Popup to handle wrong date exception
      */
-
     public static void Popup(String MSG) {
         JFrame popup = new JFrame("");
         JOptionPane.showMessageDialog(popup, MSG);
@@ -270,17 +275,22 @@ public class GUIEventTracker extends javax.swing.JDialog {
             EM.addEvent(Year, Month, Day, Title, Body);
             EM.writeToStream();
         }
+        this.jTextAreaAddBody.setText("");
+        this.jTextFieldAddTitle.setText("");
     }//GEN-LAST:event_jButtonAddActionPerformed
     /*
      LookUp events, check date for accuracy
      known issue table does not clear after switching dates...could not get to correct
      */
     private void jButtonLUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLUActionPerformed
+        this.ClearTable();
+        EM.clearHM();
         Year = "20" + String.valueOf(jSpinnerLUYear.getValue());
         Month = String.valueOf(jSpinnerLUMonth.getValue());
         Day = String.valueOf(jSpinnerLUDay.getValue());
         if (CheckDate(Day + "-" + Month + "-" + Year)) {
             EM.readFromStream();
+            this.ZeroRow();
             for (int i = 0; i < EM.getDaysEvents(Year, Month, Day).size(); i++) {
                 addRow(EM.getDaysEvents(Year, Month, Day).get(i).getEventTitle(),
                         EM.getDaysEvents(Year, Month, Day).get(i).getEventBody());

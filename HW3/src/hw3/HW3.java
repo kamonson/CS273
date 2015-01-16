@@ -18,8 +18,8 @@ public class HW3 {
      * @param args the command line arguments Calls functions for Homework 3
      */
     public static void main(String[] args) {
-        HW3_1();
-        HW3_2();
+        //HW3_1();
+        //HW3_2();
         HW3_3();
     }
     /*
