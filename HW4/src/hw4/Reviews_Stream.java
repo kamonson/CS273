@@ -1,6 +1,7 @@
 package hw4;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -41,7 +42,7 @@ public class Reviews_Stream extends Reviews {
         }
     }
 
-    public void readFromStream() {
+    public void readFromStream(ArrayList<Reviews> AL) {
         File fRead = new File("Restaurant_Reviewer.txt");
         try {
 //            BufferedReader rdrRN = new BufferedReader(new FileReader(fRead));
@@ -61,9 +62,10 @@ public class Reviews_Stream extends Reviews {
                 if (line.isEmpty()) {
                     line = rdr.readLine();
                 }
-                if (!line.contains("EndOfReview")) {
+                if (line.contains("EndOfReview")) {
                     Reviews r = new Reviews(this.getName(), this.getAddress(), this.getNotes(), this.getRating());
-                    this.arrayList.add(r);
+                    AL.add(r);
+                    continue;
                 }
 //                if (line.contains("!@#@!(*)")) {
 //                    line = rdr.readLine();

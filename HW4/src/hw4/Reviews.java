@@ -18,7 +18,7 @@ public class Reviews {
     private String notes = "None";
     private String rating = "None";
 //    private int runningNumber = 0;
-    ArrayList<Reviews> arrayList = new ArrayList<Reviews>();
+    //  private ArrayList<Reviews> arrayList = new ArrayList<Reviews>();
 
     Reviews() {
     }
@@ -68,11 +68,15 @@ public class Reviews {
 //    public Integer getRunningNumber() {
 //        return this.runningNumber;
 //    }
-    public ArrayList getArrayList() {
-        return this.arrayList;
-    }
+//    public ArrayList getArrayList() {
+//        return this.arrayList;
+//    }
 
-    public void clearArrayList() {
-        this.arrayList.clear();
-    }
+//    public void setArrayList(Reviews AL){
+//        this.arrayList.add(AL);
+//    }
+//
+//    public void clearArrayList() {
+//        this.arrayList.clear();
+//    }
 }

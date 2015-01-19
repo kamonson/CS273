@@ -26,17 +26,17 @@ public class Restaurant_Reviewer {
         review.setNotes(NT);
         review.setRating(RT);
         review.writeToStream();
-        review.readFromStream();
-        arrayList = review.getArrayList();
+        review.readFromStream(this.arrayList);
+        //arrayList = review.getArrayList();
     }
 
-    public void readReview() {
-        review.readFromStream();
-        arrayList = review.getArrayList();
+    public void readReview(ArrayList AL) {
+        review.readFromStream(AL);
+//        arrayList = review.getArrayList();
     }
     
     public ArrayList getArrayList(){
-        arrayList.sort(null);
+        //arrayList.sort(null);
         return arrayList;
     }
 }

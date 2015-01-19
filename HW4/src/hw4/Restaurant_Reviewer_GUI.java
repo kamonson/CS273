@@ -5,27 +5,49 @@
  */
 package hw4;
 
-import java.util.ArrayList;
+import java.lang.Exception;
 
 /**
  *
  * @author Kyle
  */
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class Restaurant_Reviewer_GUI extends javax.swing.JFrame {
 
     private boolean isgood = false;
     private ArrayList<Reviews> reviewsArrayList = new ArrayList<Reviews>();
+    private ArrayList<javax.swing.JButton> buttons = new ArrayList<javax.swing.JButton>();
     private Restaurant_Reviewer reviews = new Restaurant_Reviewer();
     private String name = "None";
     private String address = "None";
     private String notes = "None";
     private String rating = "None";
+    private Exception ReviewerException;
 
     /**
      * Creates new form Restaurant_Reviewer_GUI
      */
     public Restaurant_Reviewer_GUI() {
         initComponents();
+        this.UpdateComboBox();
+    }
+
+    public static void Popup(String MSG) {
+        JFrame popup = new JFrame("");
+        JOptionPane.showMessageDialog(popup, MSG);
+    }
+
+    public void UpdateComboBox() {
+        this.jComboBoxLUName.removeAll();
+        //  this.reviews.readReview();
+        this.reviewsArrayList.clear();
+        reviews.readReview(this.reviewsArrayList);
+        for (int i = 0; i < this.reviewsArrayList.size(); i++) {
+            this.jComboBoxLUName.addItem(this.reviewsArrayList.get(i).getName());
+        }
     }
 
     /**
@@ -85,10 +107,25 @@ public class Restaurant_Reviewer_GUI extends javax.swing.JFrame {
         });
 
         jButton2Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png"))); // NOI18N
+        jButton2Star.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2StarActionPerformed(evt);
+            }
+        });
 
         jButton3Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png"))); // NOI18N
+        jButton3Star.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3StarActionPerformed(evt);
+            }
+        });
 
         jButton4Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png"))); // NOI18N
+        jButton4Star.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4StarActionPerformed(evt);
+            }
+        });
 
         jButton5Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png"))); // NOI18N
         jButton5Star.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +208,11 @@ public class Restaurant_Reviewer_GUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Add", jPanel1);
 
-        jComboBoxLUName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxLUName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxLUNameActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Which place do you want to look up?");
 
@@ -187,7 +228,7 @@ public class Restaurant_Reviewer_GUI extends javax.swing.JFrame {
 
         jButton5StarLU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png"))); // NOI18N
 
-        jLabel8.setText("i.s what you rated it");
+        jLabel8.setText("is what you rated it");
 
         jLabel7.setText("Your thoghts on it were:");
 
@@ -275,16 +316,149 @@ public class Restaurant_Reviewer_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldAddNameActionPerformed
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        // TODO add your handling code here:
+        this.name = this.jTextFieldAddName.getText();
+        this.address = this.jTextFieldAddAddress.getText();
+        this.notes = this.jTextAreaAddNotes.getText();
+        if ((this.name == "None") || (this.name == "") || (this.address == "None") || (this.notes == "None") || (this.rating == "None")) {
+            try {
+                throw ReviewerException;
+            } catch (Exception ReviewerException) {
+                Popup("Please Fill in ALL feilds before adding");
+            }
+        } else {
+            this.reviews.addReview(this.name, this.address, this.notes, this.rating);
+            this.UpdateComboBox();
+            this.jTextFieldAddName.setText("");
+            this.jTextFieldAddAddress.setText("");
+            this.jTextAreaAddNotes.setText("");
+            this.jButton5Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton4Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton3Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton2Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton1Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+        }
+        this.UpdateComboBox();
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButton1StarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1StarActionPerformed
-        // TODO add your handling code here:
+        if (this.isgood == false) {
+            this.jButton5Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton4Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton3Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton2Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton1Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            this.rating = "1";
+            this.isgood = true;
+        } else {
+            this.jButton5Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton4Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton3Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton2Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton1Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.rating = "None";
+            this.isgood = false;
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1StarActionPerformed
 
     private void jButton5StarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5StarActionPerformed
-        // TODO add your handling code here:
+        if (this.isgood == false) {
+            this.jButton5Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            this.jButton4Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            this.jButton3Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            this.jButton2Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            this.jButton1Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            this.rating = "5";
+            this.isgood = true;
+        } else {
+            this.jButton5Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton4Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton3Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton2Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton1Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.rating = "None";
+            this.isgood = false;
+        }
     }//GEN-LAST:event_jButton5StarActionPerformed
+
+    private void jButton4StarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4StarActionPerformed
+        if (this.isgood == false) {
+            this.jButton5Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton4Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            this.jButton3Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            this.jButton2Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            this.jButton1Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            this.rating = "4";
+            this.isgood = true;
+        } else {
+            this.jButton5Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton4Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton3Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton2Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton1Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.rating = "None";
+            this.isgood = false;
+        } // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4StarActionPerformed
+
+    private void jButton3StarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3StarActionPerformed
+        if (this.isgood == false) {
+            this.jButton5Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton4Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton3Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            this.jButton2Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            this.jButton1Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            this.rating = "3";
+            this.isgood = true;
+        } else {
+            this.jButton5Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton4Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton3Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton2Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton1Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.rating = "None";
+            this.isgood = false;
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3StarActionPerformed
+
+    private void jButton2StarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2StarActionPerformed
+        if (this.isgood == false) {
+            this.jButton5Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton4Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton3Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton2Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            this.jButton1Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            this.rating = "2";
+            this.isgood = true;
+        } else {
+            this.jButton5Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton4Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton3Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton2Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.jButton1Star.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            this.rating = "None";
+            this.isgood = false;
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2StarActionPerformed
+
+    private void jComboBoxLUNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLUNameActionPerformed
+        //this.UpdateComboBox();
+        if (this.jComboBoxLUName.getSelectedIndex() < 0) {
+        } else {
+            buttons.add(this.jButton1StarLU);
+            buttons.add(this.jButton2StarLU);
+            buttons.add(this.jButton3StarLU);
+            buttons.add(this.jButton4StarLU);
+            buttons.add(this.jButton5StarLU);
+            this.jTextFieldLUAddress.setText(this.reviewsArrayList.get(this.jComboBoxLUName.getSelectedIndex()).getAddress());
+            for (int i = 0; i < 5; i++) {
+                this.buttons.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/BlankStar.png")));
+            }
+            for (int i = 0; i < Integer.parseInt(this.reviewsArrayList.get(this.jComboBoxLUName.getSelectedIndex()).getRating()); i++) {
+                this.buttons.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/hw4/GoldStar.png")));
+            }
+            this.jTextAreaLUNotes.setText(this.reviewsArrayList.get(this.jComboBoxLUName.getSelectedIndex()).getNotes());
+        }
+    }//GEN-LAST:event_jComboBoxLUNameActionPerformed
 
     /**
      * @param args the command line arguments

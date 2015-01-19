@@ -1,0 +1,20 @@
+Wolffys Hamburgers
+1229 North Hamilton Street, Spokane, WA 99202
+Awesome environment, good food
+4
+EndOfReview
+RedRobin
+9904 North Newport Highway, Spokane, WA 99218
+Good food, overpriced a little
+3
+EndOfReview
+Dick's Hamburgers
+10 East 3rd Avenue, Spokane, WA 99202
+Ah yeah!
+5
+EndOfReview
+Whitworth Cafeteria
+300 West Hawthorne Road, Spokane, WA 99251
+Overpriced, Under Quality
+1
+EndOfReview
