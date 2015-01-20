@@ -8,6 +8,8 @@ package hw4;
 import java.lang.Exception;
 
 /**
+ * The user interface for reviews, can add and look up reviews throws exception
+ * if no rating or no name entered
  *
  * @author Kyle
  */
@@ -15,6 +17,12 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+/**
+ * The user interface for reviews, can add and look up reviews throws exception
+ * if no rating or no name entered
+ *
+ * @author Kyle
+ */
 public class Restaurant_Reviewer_GUI extends javax.swing.JFrame {
 
     private boolean isgood = false;
@@ -41,10 +49,8 @@ public class Restaurant_Reviewer_GUI extends javax.swing.JFrame {
     }
 
     public void UpdateComboBox() {
-        this.jComboBoxLUName.removeAll();
-        //  this.reviews.readReview();
-        this.reviewsArrayList.clear();
         reviews.readReview(this.reviewsArrayList);
+        this.jComboBoxLUName.removeAllItems();
         for (int i = 0; i < this.reviewsArrayList.size(); i++) {
             this.jComboBoxLUName.addItem(this.reviewsArrayList.get(i).getName());
         }
@@ -327,7 +333,7 @@ public class Restaurant_Reviewer_GUI extends javax.swing.JFrame {
             }
         } else {
             this.reviews.addReview(this.name, this.address, this.notes, this.rating);
-            this.UpdateComboBox();
+
             this.jTextFieldAddName.setText("");
             this.jTextFieldAddAddress.setText("");
             this.jTextAreaAddNotes.setText("");
@@ -441,7 +447,6 @@ public class Restaurant_Reviewer_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2StarActionPerformed
 
     private void jComboBoxLUNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxLUNameActionPerformed
-        //this.UpdateComboBox();
         if (this.jComboBoxLUName.getSelectedIndex() < 0) {
         } else {
             buttons.add(this.jButton1StarLU);

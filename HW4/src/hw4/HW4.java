@@ -6,24 +6,27 @@
 package hw4;
 
 /**
+ * HW 4_1 HW4_2 is an android app called SuperBowlCoinFlip
  *
  * @author Kyle
  */
 public class HW4 {
 
     /**
+     * HW 4_1 HW4_2 is an android app called SuperBowlCoinFlip
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         HW4_1();
     }
+    /*
+     GUI passes array to array list to add info from name, address, and notes 
+     line and gives a star rating info stored in txt and repopulated in combo box, 
+     when resturant selected address, score and notes populate
+     */
 
     public static void HW4_1() {
-
-//        Restaurant_Reviewer rv = new Restaurant_Reviewer ();
-//        rv.addReview("Wolfies", "123 There", "It was good", "4");
-//        Reviews R = (Reviews) rv.getArrayList().get(0);
-//        System.out.print (R.getName());
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Restaurant_Reviewer_GUI().setVisible(true);

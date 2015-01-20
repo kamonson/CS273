@@ -8,6 +8,7 @@ package hw4;
 import java.util.ArrayList;
 
 /**
+ * non GUI interface
  *
  * @author Kyle
  */
@@ -27,16 +28,13 @@ public class Restaurant_Reviewer {
         review.setRating(RT);
         review.writeToStream();
         review.readFromStream(this.arrayList);
-        //arrayList = review.getArrayList();
     }
 
     public void readReview(ArrayList AL) {
         review.readFromStream(AL);
-//        arrayList = review.getArrayList();
     }
-    
-    public ArrayList getArrayList(){
-        //arrayList.sort(null);
+
+    public ArrayList getArrayList() {
         return arrayList;
     }
 }

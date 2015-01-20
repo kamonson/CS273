@@ -18,3 +18,58 @@ Whitworth Cafeteria
 Overpriced, Under Quality
 1
 EndOfReview
+Olive Garden
+9780 North Newport Highway, Spokane, WA 99218
+Not much of an Italian fan
+3
+EndOfReview
+Hop Jacks
+9265 North Nevada Street, Spokane, WA 99218
+Good burgers and drinks good environment
+4
+EndOfReview
+Tomato Street
+6220 North Division Street, Spokane, WA 99208
+Fun, but italian
+3
+EndOfReview
+
+
+
+3
+EndOfReview
+
+
+
+3
+EndOfReview
+
+
+
+3
+EndOfReview
+
+
+
+3
+EndOfReview
+
+
+
+3
+EndOfReview
+Outback Steakhouse
+5628 North Division Street #6, Spokane, WA 99207
+Really boring food, small portions
+2
+EndOfReview
+Applebee's
+9634 North Newport Highway, Spokane, WA 99218
+Poor service and menu
+2
+EndOfReview
+Frankie Doodle's
+30 East 3rd Avenue, Spokane, WA 99202
+Good food, excellent service--meeting place of my small group
+4
+EndOfReview

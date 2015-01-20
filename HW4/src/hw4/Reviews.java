@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * and open the template in the editor.
  */
 /**
+ * creates reviews
  *
  * @author Kyle
  */
@@ -17,8 +18,6 @@ public class Reviews {
     private String address = "None";
     private String notes = "None";
     private String rating = "None";
-//    private int runningNumber = 0;
-    //  private ArrayList<Reviews> arrayList = new ArrayList<Reviews>();
 
     Reviews() {
     }
@@ -46,9 +45,6 @@ public class Reviews {
         this.rating = R;
     }
 
-//    public void setRunning(Integer Rn) {
-//        this.runningNumber = Rn;
-//    }
     public String getName() {
         return this.name;
     }
@@ -64,19 +60,4 @@ public class Reviews {
     public String getRating() {
         return this.rating;
     }
-
-//    public Integer getRunningNumber() {
-//        return this.runningNumber;
-//    }
-//    public ArrayList getArrayList() {
-//        return this.arrayList;
-//    }
-
-//    public void setArrayList(Reviews AL){
-//        this.arrayList.add(AL);
-//    }
-//
-//    public void clearArrayList() {
-//        this.arrayList.clear();
-//    }
 }

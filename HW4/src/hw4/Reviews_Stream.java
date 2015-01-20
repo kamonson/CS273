@@ -11,6 +11,8 @@ import java.util.regex.Pattern;
  * and open the template in the editor.
  */
 /**
+ * Subclass of reviews, reads and writes to stream accepts an arraylist from GUI
+ * modifies it and sends it back ready to use
  *
  * @author Kyle
  */
@@ -22,9 +24,6 @@ public class Reviews_Stream extends Reviews {
     public void writeToStream() {
         File fWrite = new File("Restaurant_Reviewer.txt");
         try {
-//            BufferedWriter RnWrtr = new BufferedWriter(new FileWriter(fWrite));
-//            RnWrtr.write("!@#@!" + String.valueOf(this.getRunningNumber())); //overwrite
-//            RnWrtr.close();
             BufferedWriter wrtr = new BufferedWriter(new FileWriter(fWrite, true)); //append         
             wrtr.write(this.getName());
             wrtr.newLine();
@@ -44,18 +43,8 @@ public class Reviews_Stream extends Reviews {
 
     public void readFromStream(ArrayList<Reviews> AL) {
         File fRead = new File("Restaurant_Reviewer.txt");
+        AL.clear();
         try {
-//            BufferedReader rdrRN = new BufferedReader(new FileReader(fRead));
-//            String rNline;
-//
-//            while ((rNline = rdrRN.readLine()) != null) {
-//                Pattern p = Pattern.compile("!@#@!");
-//                Matcher m = p.matcher(rNline);
-//                while (m.find()) {
-//                    this.setRunning(Integer.parseInt(rNline));
-//                }
-//            }
-//            rdrRN.close();
             BufferedReader rdr = new BufferedReader(new FileReader(fRead));
             String line;
             while ((line = rdr.readLine()) != null) {
@@ -67,9 +56,6 @@ public class Reviews_Stream extends Reviews {
                     AL.add(r);
                     continue;
                 }
-//                if (line.contains("!@#@!(*)")) {
-//                    line = rdr.readLine();
-//                }
                 this.setName(line);
                 line = rdr.readLine();
                 this.setAddress(line);
