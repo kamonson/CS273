@@ -24,6 +24,7 @@ public class Triangle extends Shapes {
     }
 
     Triangle(int _l1, int _l2, int _l3) {
+        //PT -- don't allow negative-length sides. -3
         if (((_l1 + _l2) <= _l3) || ((_l1 + _l3) <= _l2) || ((_l2 + _l3) <= _l1)) {
             throw new IllegalArgumentException();
         }

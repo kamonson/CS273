@@ -217,6 +217,7 @@ public class GUIEventTracker extends javax.swing.JDialog {
      Add rows to table
      */
 
+    //PT -- I'm not seeing new events. -10
     public void addRow(String C1, String C2) {
         DefaultTableModel model = (DefaultTableModel) jTableLUTable.getModel();
         model.addRow(new Object[]{C1, C2});

@@ -32,6 +32,7 @@ public class Events {
         setEventNumber(RunningNumber);
     }
 
+    //PT -- need javadoc. -4
     public String getYear() {
         return year;
     }

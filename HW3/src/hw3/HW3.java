@@ -56,6 +56,7 @@ public class HW3 {
     public static void HW3_2() {
         Rectangle r = makeRectangle();
         System.out.printf("Area: %f", r.getArea());
+        //PT -- permiter?
         System.out.printf("\nPermiter: %f", r.getParim());
         Triangle t = makeTriangle();
         System.out.printf("Area: %f", t.getArea());

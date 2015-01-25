@@ -24,6 +24,8 @@ public class Numbers {
         for (int i = 0; i < array.length; i++) {
             numbers.add(array[i]);
         }
+        //PT -- generally you don't want to maintain the array as sorted. Instead,
+        //      sort it when you need to sort it.
         sortNumbers();
     }
     /*
