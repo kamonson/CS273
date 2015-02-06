@@ -40,7 +40,7 @@ public class Reviews {
     public void setNotes(String Nt) {
         this.notes = Nt;
     }
-
+//PT -- need to verify the rating is in range. It's a 1-5 rating, so R should be in [1,5]
     public void setRating(String R) {
         this.rating = R;
     }
