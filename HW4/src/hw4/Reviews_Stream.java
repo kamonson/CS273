@@ -20,7 +20,7 @@ public class Reviews_Stream extends Reviews {
 
     Reviews_Stream() {
     }
-
+//PT -- javadoc? -4
     public void writeToStream() {
         File fWrite = new File("Restaurant_Reviewer.txt");
         try {
